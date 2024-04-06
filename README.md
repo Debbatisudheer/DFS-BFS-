@@ -96,3 +96,102 @@ Conclusion
 ==========
 
 This solver helps solve the 8-puzzle problem by finding the best moves to arrange the tiles in order.
+
+
+
+8-Puzzle Solver Documentation (BFS Approach)
+============================================
+Introduction
+
+The 8-puzzle solver using the Breadth-First Search (BFS) algorithm finds the solution for the 8-puzzle problem. In this problem, a 3x3 grid contains eight numbered tiles and one empty space. The objective is to arrange the tiles in numerical order by sliding them into the empty space.
+Functions
+is_goal_state(state)
+
+    Purpose: Checks if the given state represents the goal state where all tiles are in numerical order.
+    Input: The current state of the puzzle.
+    Output: Returns True if the state is the goal state; otherwise, returns False.
+
+possible_moves(state)
+
+    Purpose: Determines possible moves (tiles adjacent to the empty space) for the given state.
+    Input: The current state of the puzzle.
+    Output: Returns a list of possible moves represented as offsets (row_offset, col_offset).
+
+apply_move(state, move)
+
+    Purpose: Applies the given move to the state and returns the new state.
+    Inputs: The current state of the puzzle and the move to make.
+    Output: Returns the new state of the puzzle after applying the move.
+
+find_empty_space(state)
+
+    Purpose: Finds the coordinates of the empty space (0) in the given state.
+    Input: The current state of the puzzle.
+    Output: Returns the coordinates of the empty space as (row, col).
+
+solve_8_puzzle_bfs(initial_state)
+
+    Purpose: Solves the 8-puzzle problem using the Breadth-First Search (BFS) algorithm.
+    Input: The initial state of the puzzle.
+    Output: Returns the solution path, the number of moves taken, and the time taken to solve the puzzle.
+
+print_puzzle(state)
+
+    Purpose: Prints the current state of the puzzle.
+    Input: The current state of the puzzle.
+    Output: Prints the puzzle grid.
+
+Example
+=========
+
+python
+
+import time
+
+# Function implementations here...
+
+# Define initial state
+initial_state = ((1, 2, 3),
+                 (4, 0, 5),
+                 (6, 7, 8))
+
+# Print initial state
+print("Initial State (Example):")
+print_puzzle(initial_state)
+print()
+
+# Solve the puzzle using BFS
+bfs_solution, bfs_num_moves, bfs_time_taken = solve_8_puzzle_bfs(initial_state)
+
+if bfs_solution:
+    print("\nBFS Solution:")
+    for move in bfs_solution:
+        initial_state = apply_move(initial_state, move)
+    print_puzzle(initial_state)
+    print("\nBFS Number of Moves:", bfs_num_moves)
+    print("BFS Time Taken:", round(bfs_time_taken, 2), "seconds")
+else:
+    print("\nBFS could not find a solution.")
+
+Output:
+=======
+
+yaml
+
+Initial State (Example):
+1 2 3
+4 0 5
+6 7 8
+
+BFS Solution:
+1 2 3
+4 5 6
+7 8 0
+
+BFS Number of Moves: 14
+BFS Time Taken: 0.06 seconds
+
+Conclusion
+===========
+
+The BFS-based solver efficiently solves the 8-puzzle problem by exploring all possible moves level by level until finding the solution.
