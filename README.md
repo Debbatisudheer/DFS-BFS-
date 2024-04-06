@@ -202,11 +202,13 @@ The BFS-based solver efficiently solves the 8-puzzle problem by exploring all po
 
 
 8-Puzzle Solver Documentation
+=============================
 Introduction
 
 The 8-puzzle solver is a program designed to find the solution to the classic 8-puzzle problem. In this problem, there is a 3x3 grid with eight numbered tiles and one empty space. The objective is to rearrange the tiles into numerical order by sliding them into the empty space.
 Main Points
 Depth-First Search (DFS)
+========================
 
     Approach: DFS explores as far as possible along each branch before backtracking.
     Pros:
@@ -217,6 +219,7 @@ Depth-First Search (DFS)
         Not guaranteed to find the shortest solution path.
 
 Breadth-First Search (BFS)
+============================
 
     Approach: BFS explores all neighbor nodes at the present depth before moving on to the nodes at the next depth level.
     Pros:
@@ -314,8 +317,6 @@ else:
     print("\nBFS could not find a solution.")
 
 Output:
-
-yaml
 
 Initial State (Example):
 1 2 3
